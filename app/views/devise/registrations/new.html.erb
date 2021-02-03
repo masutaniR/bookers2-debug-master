@@ -19,8 +19,8 @@
         <div class="field">
           <%= f.label :prefecture_name, 'Prefecture' %><br>
           <%= f.collection_select :prefecture_code,
-              JpPrefecture::Prefecture.all, :code, :name,
-              { prompt: '------------------' } %>
+              JpPrefecture::Prefecture.all, :name, :name,
+              { prompt: '---------------' } %>
         </div>
         <div class="field">
           <%= f.label :address_city, 'City' %><br>
