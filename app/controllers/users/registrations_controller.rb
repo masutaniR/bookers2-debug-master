@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def notify_new_record
-    NotificationMailer.complete_mail(resource).deliver_now
+    ThanksMailer.complete_mail(resource).deliver_now
   end
 
   # GET /resource/edit

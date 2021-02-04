@@ -1,4 +1,4 @@
-class NotificationMailer < ApplicationMailer
+class ThanksMailer < ApplicationMailer
   default from: 'no-reply@gmail.com'
 
   def complete_mail(user)
