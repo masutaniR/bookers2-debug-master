@@ -5,7 +5,7 @@
         <%= @user.name %>さんとのチャット
       </h2>
 
-      <table class="table message">
+      <table class="table table-borderless message">
         <thead>
           <tr>
             <th style="text-align: left;">
@@ -43,8 +43,9 @@
         <% end %>
       </table>
 
+      <div id="chat-error"></div>
       <%= form_with model: @chat do |f| %>
-        <%= f.text_field :message, placeholder: "message", class: 'form-control' %>
+        <%= f.text_field :message, placeholder: "message", autocomplete: "off", class: 'form-control' %>
         <%= f.hidden_field :room_id %>
       <% end %>
     </div>
