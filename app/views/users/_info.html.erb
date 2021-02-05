@@ -18,7 +18,13 @@
   </tr>
 </table>
 
-<div class='row'>
+<div class="row">
+  <% if current_user != user %>
+    <%= link_to "chatする", chat_path(user) %>
+  <% end %>
+</div>
+
+<div class='row mt-2'>
   <% if user == current_user %>
     <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
   <% else %>
