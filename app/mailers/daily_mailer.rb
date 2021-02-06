@@ -1,5 +1,5 @@
 class DailyMailer < ApplicationMailer
   def notify_user
-    mail(subject: "everyday Bookers!yay!", bcc: User.pluck(:email))
+    mail(subject: "確認メール", bcc: User.pluck(:email))
   end
 end
