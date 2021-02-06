@@ -18,11 +18,14 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+
 require File.expand_path(File.dirname(__FILE__) + "/environment")
 rails_env = Rails.env.to_sym
 set :environment, rails_env
 set :output, 'log/cron.log'
-
-every 1.days, at: '11:00 am' do
-  runner "DailyMailer.notify_user"
+every 2.minute do
+  runner "Batch::SendMail.confirmation"
+rescue => e
+  Rails.logger.error("aborted rails runner")
+  raise e
 end
