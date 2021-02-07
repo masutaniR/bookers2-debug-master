@@ -43,4 +43,7 @@ div {
   @extend .btn !optional;
   background-color: #FF69B4;
   color: white;
+  &:hover {
+    color: white;
+  }
 }

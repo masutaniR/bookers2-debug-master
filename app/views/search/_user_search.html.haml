@@ -1,0 +1,17 @@
+%h2
+  Users search for '#{value}'
+%table.table
+  %thead
+    %tr
+      %th
+      %th Name
+      %th Introduction
+  - datas.each do |user|
+    %tbody
+      %tr
+        %th
+          = attachment_image_tag(user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40')
+        %th
+          = user.name
+        %th
+          = user.introduction

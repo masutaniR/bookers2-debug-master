@@ -1,0 +1,32 @@
+.container
+  .row
+    .col-md-6.mx-auto
+      %h2#room{"data-room" => "#{@room.id}", "data-user" => "#{current_user.id}"}
+        = @user.name
+        さんとのチャット
+      %table.table.table-borderless.message
+        %thead
+          %tr
+            %th{:style => "text-align: left;"}
+              = @user.name
+            %th{:style => "text-align: right;"}
+              = current_user.name
+        - @chats.each do |chat|
+          - if chat.user_id == current_user.id
+            %tbody
+              %tr
+                %td
+                %td
+                  %p{:style => "text-align: right;"}
+                    = chat.message
+          - else
+            %tbody
+              %tr
+                %td
+                  %p{:style => "text-align: left;"}
+                    = chat.message
+                %td
+      #chat-error
+      = form_with model: @chat do |f|
+        = f.text_field :message, placeholder: "message", autocomplete: "off", class: 'form-control'
+        = f.hidden_field :room_id
