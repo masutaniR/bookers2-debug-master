@@ -37,3 +37,10 @@ div {
     margin-bottom: 10px;
   }
 }
+
+// ピンク色のボタン
+.btn-pink {
+  @extend .btn !optional;
+  background-color: #FF69B4;
+  color: white;
+}
