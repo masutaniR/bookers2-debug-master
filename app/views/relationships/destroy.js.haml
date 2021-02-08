@@ -1,0 +1,6 @@
+$("#follow-btn-#{@user.id}").html("#{j(render 'users/follow', user: @user)}");
+$('#followers-count-#{@user.id}').html("フォロワー数:#{@user.followers.count}");
+$('#following-count-#{current_user.id}').html("フォロー数:#{current_user.following.count}");
+
+$('#followers-link-#{@user.id}').html('#{link_to @user.followers.count, followers_user_path(@user)}');
+$('#following-link-#{current_user.id}').html('#{link_to current_user.following.count, following_user_path(current_user)}');

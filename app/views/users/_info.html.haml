@@ -8,10 +8,12 @@
     %th= user.introduction
   %tr
     %th follows
-    %th= link_to user.following.count, following_user_path(user)
+    %th{:id => "following-link-#{user.id}"}
+      = link_to user.following.count, following_user_path(user)
   %tr
     %th followers
-    %th= link_to user.followers.count, followers_user_path(user)
+    %th{:id => "followers-link-#{user.id}"}
+      = link_to user.followers.count, followers_user_path(user)
   %tr
     %th favorites
     %th= link_to user.favorites.count, favorites_user_path(user)
@@ -22,7 +24,7 @@
   - if user == current_user
     = link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}"
   - else
-    #follow-form
+    %div{:id => "follow-btn-#{user.id}"}
       - if current_user.following?(user)
         = render 'users/unfollow', user: user
       - else
