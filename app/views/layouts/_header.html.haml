@@ -13,9 +13,16 @@
               %li= link_to ' Users',users_path,class: 'fas fa-users nav-link text-light'
               %li= link_to ' Books',books_path ,class: 'fas fa-book-open nav-link text-light'
               %li= link_to ' logout', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light'
-              %li
-                = link_to user_path(current_user) do
+              %li.dropdown
+                %a.dropdown-toggle.text-light{"href" => "#", "id" => "navbarDropdown", "role" => "button", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}
                   =attachment_image_tag(current_user, :profile_image, :fill, 30, 30, fallback: 'no-image-icon.jpg', size: '30x30', class: 'rounded-circle mt-1 ml-2')
+                .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "navbarDropdown"}
+                  = link_to 'My page', user_path(current_user), class: 'dropdown-item'
+                  = link_to 'Users', users_path, class: 'dropdown-item'
+                  = link_to 'Books', books_path, class: 'dropdown-item'
+                  .dropdown-divider
+                  = link_to 'Edit profile', edit_user_path(current_user), class: 'dropdown-item'
+                  = link_to 'logout', destroy_user_session_path, method: :delete, class: 'dropdown-item'
             - else
               %li= link_to ' Home',root_path,class: 'fas fa-home nav-link text-light'
               %li= link_to ' About',home_about_path,class: 'fas fa-link nav-link text-light'
