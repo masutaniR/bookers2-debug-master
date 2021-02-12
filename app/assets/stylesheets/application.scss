@@ -38,6 +38,10 @@ div {
   }
 }
 
+img {
+  border-radius: 50%;
+}
+
 // ピンク色のボタン
 .btn-pink {
   @extend .btn !optional;

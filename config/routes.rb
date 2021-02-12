@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get '/search' => 'search#search'
   get 'chat/:id' => 'chats#show', as: 'chat'
   resources :chats, only: [:create]
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end

@@ -74,3 +74,5 @@ gem 'jp_prefecture'
 gem 'dotenv-rails'
 gem 'whenever', require: false
 gem "haml-rails"
+gem 'letter_opener_web'
+
