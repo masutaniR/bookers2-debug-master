@@ -11,6 +11,11 @@
   %body
     = render 'layouts/header'
     %main
-      %p#notice= notice
+      - flash.each do |key, value|
+        %p.alert{:class => "alert-success"}
+          = value
+          %button.close{ 'type' => 'button', 'data-dismiss' => 'alert' } &times;
+
+      // %p#notice= notice
       = yield
     = render 'layouts/footer'
