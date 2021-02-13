@@ -24,6 +24,8 @@
               = render 'book_comments/comments_count', book: @book
           - if @book.user == current_user
             %td= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}"
-            %td= link_to 'Destroy', book_path(@book), method: :delete, 'data-confirm' => 'Are you sure?', class: "btn btn-sm btn-danger destroy_book_#{@book.id}"
+            %td= link_to 'Destroy', book_path(@book), method: :delete,
+              data: { confirm: 'Are you sure?', cancel: 'Cancel', commit: "I'm sure." }, title: "Destroy '#{@book.title}'",
+              class: "btn btn-sm btn-danger destroy_book_#{@book.id}"
 
       = render 'book_comments/comment', book: @book, book_comments: @book.book_comments, book_comment: @book_comment
